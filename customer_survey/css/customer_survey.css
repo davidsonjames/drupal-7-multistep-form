@@ -1,0 +1,10 @@
+/* 
+    Document   : customer_survey.css
+    Created on : 30-Apr-2012, 10:23:09
+    Author     : j.davidson
+
+*/
+
+#customer-survey-form #edit-header ul li.active {
+    font-weight:bold;
+}
