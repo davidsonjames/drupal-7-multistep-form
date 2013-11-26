@@ -8,7 +8,7 @@
 
 /**
  * Handles what to do with the submitted form depending on what stage has been
- * complated.
+ * completed.
  * 
  * @see customer_survey_form()
  * @see customer_survey_form_validate()
