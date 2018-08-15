@@ -1,9 +1,13 @@
 <?php
 
+/**
+ * @file
+ * Customer survey hooks.
+ */
+
 module_load_include('inc', 'customer_survey', 'includes/customer_survey.navigation');
 module_load_include('inc', 'customer_survey', 'includes/customer_survey.validate');
 module_load_include('inc', 'customer_survey', 'includes/customer_survey.submit');
-
 
 /**
  * Implements hook_menu().
@@ -19,7 +23,7 @@ function customer_survey_menu() {
     'file' => 'includes/customer_survey.form.inc',
     'type' => MENU_NORMAL_ITEM,
   );
-  
+
   $items['complete-page'] = array(
     'title' => 'Survey Complete',
     'page callback' => 'customer_survey_complete',
@@ -27,24 +31,22 @@ function customer_survey_menu() {
     'access arguments' => array('access content'),
     'type' => MENU_NORMAL_ITEM,
   );
-  
+
   return $items;
 }
 
-
-/*
+/**
  * Implements hook_mail().
  */
 function customer_survey_mail($key, &$message, $params) {
-    
+
   if (isset($params['subject'])) {
     $message['subject'] = $params['subject'];
-  } 
-  if (isset($params['body'])) {
-    $message['body'][] = $params['body']; 
   }
-  if (isset($params['headers']) && is_array($params['headers'])) {   
+  if (isset($params['body'])) {
+    $message['body'][] = $params['body'];
+  }
+  if (isset($params['headers']) && is_array($params['headers'])) {
     $message['headers'] += $params['headers'];
   }
-  
 }
